@@ -1,0 +1,61 @@
+#anketaBlok {
+	width: 140px;
+	background-color: #EBEBEB;
+	padding: 5px;
+}
+
+#anketaBlok h5, #anketaBlok p#anketaCelkem {
+	font-size: 100%;
+	font-family: "Arial";
+}
+
+#anketaBlok h5 {
+	margin: 0 0 15px 0;
+	padding: 0;
+	/*font-weight: normal;*/
+}
+
+#anketaBlok p {
+	padding: 0;
+	margin: 10px 0 0 0;
+}
+
+#anketaBlok form {
+	margin: 0;
+	padding: 0;
+}
+
+#anketaBlok .cleaner {
+	line-height: 3px;
+	font-size: 3px;
+	height: 3px;
+	clear:both;
+}
+
+#anketaBlok .leftDiv, #anketaBlok .rightDiv {
+	font-size: 90%;
+}
+#anketaBlok .leftDiv {
+	clear:left;
+}
+#anketaBlok .rightDiv {
+	clear:right;
+}
+
+
+#anketaBlok .anketaNegative, #anketaBlok .anketaPositive {
+	display: block;
+	width: 100%;
+	height: 7px;
+	font-size: 1px;
+}
+
+#anketaBlok .anketaNegative {
+	margin: 0 0 7px 0;
+	background-color: White;
+}
+
+#anketaBlok .anketaPositive {
+	width: 0%;
+	background: #DD0000 url('../ankety/obr/bar.gif') repeat-x;
+}
