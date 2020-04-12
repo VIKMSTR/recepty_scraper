@@ -3,19 +3,23 @@ import shutil
 # from os.path import isfile, joim
 from os import walk
 from distutils.dir_util import copy_tree
-f = []
+f = {}
 for (dirpath, dirnames, filenames) in walk("./temp"):
-    f.extend(filenames)
+    for filename in filenames:
+        if str(filename).endswith(".binding"):
+            binding_file = open("./temp/" + filename,"r",encoding="utf-8")
+            f[filename.replace("binding","html")] = (binding_file.read())
+
     break
 
-# copy_tree("./temp", "./public/temp/")
+copy_tree("./temp", "./docs/temp/")
 
 links = ""
-for file in f:
-    links = links + r'<a href = "./temp/' + file + r'">' + file + "</a>"
+for file in f.keys():
+    links = links + r'<ul><a href = "./temp/' + file + r'">' + f.get(file) + "</a></ul>"
 
 
-index_html = "<html><head><title>Recepty</title></head><body><h2>RECEPTY z 'PEČE CELÁ ZEMĚ'</h2>" + links + "</body></html>"
+index_html = "<html><head><title>Recepty</title></head><body><h2>RECEPTY z 'PEČE CELÁ ZEMĚ'</h2><br/><li>" + links + "</li></body></html>"
 
 index = open("docs/index.html", "w", encoding="utf-8")
 index.write(index_html)

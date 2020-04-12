@@ -60,7 +60,7 @@ def getImagesFromGallery(recipe_soup):
     divblock = recipe_soup.find('div', attrs={'class': 'gallery_v2-holder'})
     for a in divblock.find_all('a'):
         imageurls.append("https:" + a['href'])
-    print(imageurls)
+    # print(imageurls)
     return imageurls
 
 
@@ -136,21 +136,22 @@ for url in urls:
     # wp.save_assets()
     # wp.save_complete()
     # f.write(unicode(content.text))
-
-
+    binding_file = open("./temp/" + str(i) + ".binding", "w", encoding="utf-8")
+    binding_file.write(title)
+    binding_file.close()
     # getRecipesAsHtml(i,title,recipe_soup)
 
 
     # f.write(unicode(getFullRecipe(recipe_soup)))
     if not os.path.exists(target_dir):
         os.mkdir(target_dir)
-    HTML("./temp/" + str(i) + ".html").write_pdf('./recepty/' + str(i) + ".pdf")
-    pdfkit.from_file("./temp/" + str(i) + ".html", './recepty/' + str(i) + ".pdf")
+    # HTML("./temp/" + str(i) + ".html").write_pdf('./recepty/' + str(i) + ".pdf")
+    # pdfkit.from_file("./temp/" + str(i) + ".html", './recepty/' + str(i) + ".pdf")
 
     # terminate after one passing just for test
 
     #805899dc4e8191c1730f9353c2ef7177
-    exit(0)
+    # exit(0)
     # for contentFragment in parseContent(recipe_soup):
     #     # print(unicode(contentFragment.string))
     #     print(contentFragment)
