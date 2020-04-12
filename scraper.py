@@ -10,6 +10,8 @@ from pytz import unicode
 from weasyprint import HTML, CSS
 from xhtml2pdf import pisa
 import pdfkit
+from markdownify import markdownify as md
+
 
 target_dir = "recepty"
 tempFile = "temp"
@@ -110,6 +112,7 @@ def getRecipesAsHtml(i,title,recipe_soup):
     formatted = formatRecipe(title, getFullRecipe(recipe_soup), downloaded_images)
     f.write(formatted)
     f.close()
+    return formatted
 
 for url in urls:
     print(url)
@@ -142,7 +145,7 @@ for url in urls:
     if not os.path.exists(target_dir):
         os.mkdir(target_dir)
     HTML("./temp/" + str(i) + ".html").write_pdf('./recepty/' + str(i) + ".pdf")
-    pdfkit.from_file("./temp/" + str(i) + ".html" ,'./recepty/' + str(i) + ".pdf")
+    pdfkit.from_file("./temp/" + str(i) + ".html", './recepty/' + str(i) + ".pdf")
 
     # terminate after one passing just for test
 
