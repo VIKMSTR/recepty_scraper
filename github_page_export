@@ -16,10 +16,10 @@ copy_tree("./temp", "./docs/temp/")
 
 links = ""
 for file in f.keys():
-    links = links + r'<ul><a href = "./temp/' + file + r'">' + f.get(file) + "</a></ul>"
+    links = links + r'<li><a href = "./temp/' + file + r'">' + f.get(file) + "</a></li>"
 
 
-index_html = "<html><head><title>Recepty</title></head><body><h2>RECEPTY z 'PEČE CELÁ ZEMĚ'</h2><br/><li>" + links + "</li></body></html>"
+index_html = "<html><head><title>Recepty</title></head><body><h2>RECEPTY z 'PEČE CELÁ ZEMĚ'</h2><br/><ul>" + links + "</ul></body></html>"
 
 index = open("docs/index.html", "w", encoding="utf-8")
 index.write(index_html)
