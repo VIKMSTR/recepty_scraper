@@ -17,6 +17,6 @@ for file in f:
 
 index_html = "<html><head><title>Recepty</title></head><body><h2>RECEPTY z 'PEČE CELÁ ZEMĚ'</h2>" + links + "</body></html>"
 
-index = open("./public/index.html", "w", encoding="utf-8")
+index = open("docs/public/index.html", "w", encoding="utf-8")
 index.write(index_html)
 index.close()
